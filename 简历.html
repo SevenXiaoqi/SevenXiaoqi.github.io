@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人简历</title>
+  <!-- 引入Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入Font Awesome图标 -->
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- 配置Tailwind自定义主题 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563eb', // 主色调：蓝色
+            secondary: '#475569', // 辅助色：深灰色
+            accent: '#0ea5e9', // 强调色：亮蓝色
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  <!-- 自定义工具类 -->
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .resume-section {
+        @apply mb-6 md:mb-8;
+      }
+      .section-title {
+        @apply text-xl md:text-2xl font-bold text-primary border-b-2 border-primary pb-2 mb-4;
+      }
+      .entry-title {
+        @apply font-bold text-lg md:text-xl text-secondary;
+      }
+      .entry-subtitle {
+        @apply text-accent font-semibold mb-1;
+      }
+      .text-sm-custom {
+        @apply text-sm md:text-base;
+      }
+    }
+  </style>
+  <!-- 打印样式优化 -->
+  <style>
+    @media print {
+      body {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+      @page {
+        size: A4;
+        margin: 1.5cm;
+      }
+      /* 隐藏打印时不需要的元素 */
+      .no-print {
+        display: none !important;
+      }
+      /* 确保PDF中边框和颜色正常显示 */
+      .border-primary {
+        border-color: #2563eb !important;
+      }
+      /* 优化打印时的字体渲染 */
+      html {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+  <div class="max-w-4xl mx-auto bg-white p-6 md:p-10 shadow-lg my-8">
+    <!-- 头部：个人信息 -->
+    <header class="text-center mb-10">
+      <h1 class="text-3xl md:text-4xl font-bold text-secondary mb-10">web前端开发工程师</h1>
+      <!-- <p class="text-xl md:text-2xl text-primary mb-4"></p> -->
+      <div class="flex flex-wrap justify-center gap-4 md:gap-6 text-sm-custom">
+        <div class="flex items-center">
+          <i class="fa fa-user mr-2 text-accent"></i>
+          <span>韩明晋</span>
+        </div>
+        <div class="flex items-center">
+          <i class="fa fa-venus mr-2 text-accent"></i>
+          <span>男</span>
+        </div>
+        <div class="flex items-center">
+          <i class="fa fa-birthday-cake mr-2 text-accent"></i>
+          <span id="age">28</span>
+        </div>
+        <div class="flex items-center">
+          <i class="fa fa-phone mr-2 text-accent"></i>
+          <span class="cursor-pointer"  title="点击复制" >151-3537-6310</span>
+        </div>
+        <div class="flex items-center">
+          <i class="fa fa-envelope mr-2 text-accent"></i>
+          <span class="cursor-pointer"  title="点击复制" >15135376310@163.com</span>
+        </div>
+        <div class="flex items-center">
+          <i class="fa fa-briefcase mr-2 text-accent"></i>
+          <span>六年 · 已离职</span>
+        </div>
+        <div class="flex items-center">
+          <i class="fa fa-money mr-2 text-accent"></i>
+          <span>面议</span>
+        </div>
+        <div class="flex items-center">
+            <img src="https://csdn.net/favicon.ico" alt="CSDN图标" style="width: 17px; height: 18px; margin-right: 5px; border-radius: 5px;">
+            <span class="cursor-pointer" title="点击复制">weixin_51445493</span>
+        </div>
+        <div class="flex items-center">
+          <i class="fa fa-graduation-cap mr-2 text-accent"></i>
+          <span>兰州理工 · 计算机科学与技术 ·本科</span>
+        </div>
+        <div class="flex items-center">
+          <i class="fa fa-map-marker mr-2 text-accent"></i>
+          <span>北京市</span>
+        </div>
+        <!-- <div class="flex items-center">
+          <i class="fa fa-home mr-2 text-accent"></i>
+          <span>山西</span>
+        </div> -->
+      </div>
+    </header>
+
+    <main>
+        <!-- 个人简介 -->
+        <section class="resume-section">
+            <h2 class="section-title">个人优势</h2>
+            <p class="text-sm-custom leading-relaxed">
+                对工作与项目用心负责，性格诚恳细心、乐观稳重。具备良好团队精神与强执行力，能快速适应环境并做好本职工作。逻辑清晰、责任心强，注重在实践中学习新技术、改良代码，持续完善自我以提升工作价值。
+            </p>
+        </section>
+        <!-- 技能清单 -->
+        <section class="resume-section">
+            <h2 class="section-title">专业技能</h2>
+            <ul class="list-disc list-inside text-sm-custom leading-relaxed ml-2 md:ml-4 space-y-1">
+                <li>精通 HTML5、CSS3 核心特性与前沿规范，能高度还原 UI 设计图，实现响应式布局、动画效果及跨终端适配；</li>
+                <li>熟练掌握 JavaScript/TypeScript 及 jQuery，理解闭包、作用域、原型链等底层原理，熟练运用 ES6 + 语法、Promise、Async/Await 等高级特性开发复杂页面交互；</li>
+                <li>熟练使用 Axios 进行前后端数据交互，熟悉 WebSocket 实时通信原理，能高效处理接口请求、异常捕获与数据格式化；</li>
+                <li>精通 Vue2/Vue3，熟练使用 Vue CLI/Vite+TS 独立开发应用，深入理解组件化思想、响应式原理及 Vue Router、Pinia/Vuex 状态管理；</li>
+                <li>熟练掌握 React 框架及生态，能基于 Vite、Ant Design 等工具 / 组件库独立开发企业级应用，熟悉 Hooks、虚拟 DOM、组件生命周期等核心概念；</li>
+                <li>具备微信小程序、UniApp 跨端开发经验，可快速实现多平台移动端应用开发，适配不同终端屏幕与交互规范；</li>
+                <li>熟悉 ArkTS/ArkUI，能用 DevEco Studio 开发鸿蒙 APP；</li>
+                <li>精通 Git/SVN，支撑多人协同开发；</li>
+                <li>了解 Node.js，可搭建本地服务及简单接口，具备全栈开发能力；</li>
+                <li>熟练使用 Python 语言，基于 DashGo 框架进行后台系统的开发，具备跨端与跨语言协作能力。</li>
+            </ul>
+        </section>
+        <!-- 工作经验 -->
+        <section class="resume-section">
+            <h2 class="section-title">工作经验</h2>
+            <div class="space-y-6">
+                 <!-- 工作经历 -->
+                 <div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-5">
+                        <p class="entry-subtitle">电莫愁信息（北京）有限公司</p>
+                        <span class="text-sm-custom text-gray-600">前端开发工程师</span>
+                        <span class="text-sm-custom text-gray-600">2024.10 - 至今</span>
+                    </div>
+                    <ul class="list-disc list-inside text-sm-custom leading-relaxed ml-2 md:ml-4 space-y-1">
+                        <li>主导公司核心产品前端技术选型，结合项目业务场景与团队技术栈，输出 Vue3/React 框架及 Ant Design/Element Plus 组件库适配方案，保障技术架构的合理性、可维护性与扩展性；</li>
+                        <li>独立负责充电小程序、配电室运维平台前端全流程开发，涵盖页面布局、交互实现、接口联调与多端兼容性适配，保障设备状态实时反馈与用户操作流畅性；</li>
+                        <li>主导客户沟通与需求对接，高效推进项目签约及落地</li>
+                        <li>主导集团子公司数字化转型落地，整合多业务系统数据与流程，搭建统一数据共享通道，优化核心业务流转效率，提升跨部门协同与客户服务体验；</li>
+                        <li>钻研数字孪生技术应用，推动数字孪生平台与业务系统深度融合，实现设备状态可视化、流程自动化管控，助力业务决策效率提升；</li>
+                        <li>主导公司项目标书编写、资质材料整合与投标全流程推进，保障投标文件合规性与专业性；</li>
+                        <li>参与迎宾机器人、配电室清扫巡检机器人的研发，负责机器人配套 APP 界面开发与数据交互，保障运维操作的便捷性与稳定性。</li>
+                    </ul>
+                    <p class="font-bold mt-5 ">项目业绩：</p>
+                    <p class="text-sm-custom leading-relaxed ml-2 md:ml-4 space-y-1 text-indent-8 mt-5">
+                        充电小程序、充电小程序后台管理系统、充电小程序营销活动配置系统、配电室运维平台系统、OA管理系统、迎宾机器人及配电室清扫巡检机器人app开发、配电室清扫巡检机器人标书
+                    </p>
+                </div>
+                <!-- 工作经历 -->
+                <div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-5">
+                        <p class="entry-subtitle">中钢冶金·亿海蓝CargoGO</p>
+                        <span class="text-sm-custom text-gray-600">前端开发工程师</span>
+                        <span class="text-sm-custom text-gray-600">2024.04 - 2024.10</span>
+                    </div>
+                    <ul class="list-disc list-inside text-sm-custom leading-relaxed ml-2 md:ml-4 space-y-1">
+                        <li>独立负责 CargoGO 官网及官网管理系统开发，实现官网引流推广功能，完成与船讯网的接口对接及引流数据记录统计，支撑市场获客需求；</li>
+                        <li>主导 CargoGO 核心业务系统的开发与日常维护，同步开发测试用户专属系统，优化测试流程，保障业务系统稳定迭代与高效上线；</li>
+                        <li>负责财务系统前端开发，完成与金蝶系统的接口适配、数据同步及流程对接，确保财务数据传输准确、对账流程合规高效。</li>
+                    </ul>
+                    <p class="font-bold mt-5 ">项目业绩：</p>
+                    <p class="text-sm-custom leading-relaxed ml-2 md:ml-4 space-y-1 text-indent-8 mt-5">
+                        CargoGO官网、CargoGO后台管理系统、业务系统,财务系统等
+                    </p>
+                </div>
+                <!-- 工作经历 -->
+                <div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-5">
+                        <p class="entry-subtitle">北京璞盛明元科技有限公司</p>
+                        <span class="text-sm-custom text-gray-600">前端开发工程师</span>
+                        <span class="text-sm-custom text-gray-600">2021.06 - 2024.03</span>
+                    </div>
+                    <ul class="list-disc list-inside text-sm-custom leading-relaxed ml-2 md:ml-4 space-y-1">
+                        <li>负责公司核心产品的前端架构设计、技术方案落地及全生命周期开发维护，独立主导 Vue2/Vue3 技术栈项目的从 0 到 1 搭建与迭代；</li>
+                        <li>主导移动端 H5 应用核心开发，基于响应式布局与适配方案，实现多终端（手机、平板等）一致的交互体验与视觉效果；</li>
+                        <li>深度参与跨部门协作，与产品、设计、后端团队建立高效沟通机制，同步需求、推进研发进度，保障项目高质量高效迭代交付；</li>
+                        <li>负责客户前端技术培训与赋能，系统化讲解产品技术逻辑与操作要点，快速响应并解决客户使用过程中的技术问题，显著提升客户满意度与产品使用率。</li>
+                    </ul>
+                    <p class="font-bold mt-5 ">项目业绩：</p>
+                    <p class="text-sm-custom leading-relaxed ml-2 md:ml-4 space-y-1 text-indent-8 mt-5">
+                        货运营销大数据系统、货运数据治理、粤商通App、广货通小程序、中欧班列信息集成-数据共享中心
+                    </p>
+                </div>
+                <!-- 工作经历-->
+                <div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-5">
+                        <p class="entry-subtitle">中科华汇</p>
+                        <span class="text-sm-custom text-gray-600">前端开发工程师</span>
+                        <span class="text-sm-custom text-gray-600">2019.07 - 2021.05</span>
+                    </div>
+                    <ul class="list-disc list-inside text-sm-custom leading-relaxed ml-2 md:ml-4 space-y-1">
+                        <li>独立主导 Vue2 技术栈客户项目的从0到1搭建，保障项目从需求到上线的闭环交付；</li>
+                        <li>主导移动端 H5 应用核心开发，基于响应式布局与适配方案，实现多终端（手机、平板等）一致的交互体验与视觉效果；</li>
+                        <li>深度参与跨部门协作，建立与产品、设计、后端团队的高效沟通机制，同步需求变更、推进研发进度，有效规避项目风险，保障交付质量与效率。</li>
+                    </ul>
+                    <p class="font-bold mt-5 ">项目业绩：</p>
+                    <p class="text-sm-custom leading-relaxed ml-2 md:ml-4 space-y-1 text-indent-8 mt-5">
+                       南宁海关官网及后台配置、海关数据查询系统、采信机构系统等
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- 项目经历 -->
+        <section class="resume-section">
+            <h2 class="section-title">项目经历</h2>
+            <div class="space-y-6">
+                <!-- 项目经验 -->
+                <div class="mb-8">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-3">
+                        <h3 class="entry-title" style="color: rgba(14, 165, 233,1);">中欧班列信息集成平台 · 数据共享中心</h3>
+                        <!-- <span class="text-sm-custom text-gray-600">2022.01 - 2022.06</span> -->
+                    </div>
+                    <p class="text-sm-custom text-indent-8 mb-3"><span class="font-bold">项目描述：</span> 中欧班列运行于中欧和“一带一路”沿线国家之间，是中国与沿线国家深化经贸合作的重要载体，中欧班列
+                        信息集成平台数据共享中心是一款数据集成平台，用于展示各个口岸站的运行数据</p>
+                    <p class="text-sm-custom text-indent-8 mb-3"><span class="font-bold">项目职责：</span></p>
+                    <ul class="list-disc list-inside text-sm-custom leading-relaxed ml-3 md:ml-4 space-y-1 mb-3">
+                        <li>阅读相关文档并跟客户进行沟通，参与项目立项过程</li>
+                        <li>根据项目需求搭建优化高维护性框架体系达到符合系统开发要求</li>
+                        <li>全面了解研发产品所需要达到的功能，按UI设计稿进行界面布局，并完成前端页面交互效果</li>
+                        <li>跟后端对接接口，进行数据调试</li>
+                        <li>集成第三方数据接口（如口岸物流状态查询、实时货运统计、地图可视化组件、帆软报表等），完成接口适配与联调，丰富平台数据维度与功能场景；</li>
+                        <li>将项目打包部署到测试，内部以及线上三个环境</li>
+                        <li>根据用户体验提交的建议，负责对项目进行优化修改提高项目的用户体验</li>
+                    </ul>
+                    <p class="text-sm-custom text-indent-8 mb-3"><span class="font-bold">技术栈：</span> echarts、element-plus、Encrypt、vue3、jQuery、git、帆软报表等</p>
+                </div>
+                <!-- 项目经验 -->
+                <div class="mb-8">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-3">
+                        <h3 class="entry-title" style="color: rgba(14, 165, 233,1);">货运营销大数据系统</h3>
+                        <!-- <span class="text-sm-custom text-gray-600">2022.01 - 2022.06</span> -->
+                    </div>
+                    <p class="text-sm-custom text-indent-8 mb-3"><span class="font-bold">项目描述：</span> 该项目是铁路货运领域一体化数据分析集成系统，整合货运KPI监控、客户关系管理、货源数据统计等核心模块，通过数据可视化与智能化分析，为铁路货运业务决策提供数据支撑，提升运营效率。</p>
+                    <p class="text-sm-custom text-indent-8 mb-3"><span class="font-bold">项目职责：</span></p>
+                    <ul class="list-disc list-inside text-sm-custom leading-relaxed ml-3 md:ml-4 space-y-1 mb-3">
+                        <li>研读项目需求文档，参与与客户沟通,确认核心开发目标，梳理业务逻辑并熟练掌握项目技术框架；</li>
+                        <li>独立负责登录界面开发，实现账号权限校验、密码加密存储、登录状态管理等功能，保障系统访问安全性；</li>
+                        <li>设计并开发系统管理与用户管理模块，包含角色配置、权限分配、用户信息维护等功能，支撑多角色协同操作；</li>
+                        <li>主导货运KPI监控大屏开发，基于数据可视化技术实现货运量、周转率、准点率等核心指标的实时展示，支持多维度数据筛选与钻取；</li>
+                        <li>负责前端与后端接口对接，完成数据联调、异常捕获与处理，确保数据传输准确、系统稳定运行；</li>
+                        <li>面向客户开展系统实操、业务逻辑及代码使用培训，覆盖核心功能、数据解读、问题排查与二次开发规范，通过 “讲解 + 实操” 帮助客户快速上手系统并独立完成个性化拓展；</li>
+                        <li>持续与用户、测试人员沟通，针对性优化界面交互、数据加载速度及功能细节，显著提升系统易用性</li>
+                    </ul>
+                    <p class="text-sm-custom text-indent-8 mb-3"><span class="font-bold">技术栈：</span> echarts、element-ui、Encrypt、vue2、jQuery、git</p>
+                </div>
+                <!-- 项目经验 -->
+                <div class="mb-8">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-3">
+                        <h3 class="entry-title" style="color: rgba(14, 165, 233,1);">数据治理</h3>
+                        <!-- <span class="text-sm-custom text-gray-600">2022.01 - 2022.06</span> -->
+                    </div>
+                    <p class="text-sm-custom text-indent-8 mb-3"><span class="font-bold">项目描述：</span>针对铁路货运数据准确性不足、多源数据不一致等痛点，搭建专业化数据治理系统，通过数据标准统一、清洗校验、质量监控等功能，保障货运数据的完整性、一致性与可用性，为业务决策与数据分析提供可靠数据支撑。</p>
+                    <p class="text-sm-custom text-indent-8 mb-3"><span class="font-bold">项目职责：</span></p>
+                    <ul class="list-disc list-inside text-sm-custom leading-relaxed ml-3 md:ml-4 space-y-1 mb-3">
+                        <li>开发数据标准管理模块，实现字段定义、编码规则配置、口径统一等功能，支持货运数据标准化录入与校验，保障数据一致性；</li>
+                        <li>开发数据清洗操作界面，提供重复数据去重、缺失值补全、异常数据修正等可视化操作功能，降低业务人员治理门槛；</li>
+                        <li>基于ECharts开发多维度数据质量监控看板，实时展示数据完整性、准确率、一致性等核心指标，支持异常数据溯源与筛选，助力问题快速定位；</li>
+                        <li>对接后端数据治理接口，封装数据请求工具，设计断点续传与异常重试机制，确保大批量货运数据同步的稳定性与准确性；</li>
+                        <li>开发权限精细化管控模块，按数据治理角色（管理员、审核员、机务段）分配功能权限与数据访问范围，保障敏感治理数据安全；</li>
+                        <li>优化前端性能，通过路由懒加载、大数据渲染虚拟滚动、接口缓存等方案，将页面加载速度提升，支持万级数据量流畅操作；</li>
+                        <li>为客户提供数据治理业务流程与系统实操培训，解答使用疑问，保障客户独立开展常态化数据治理工作。</li>
+                    </ul>
+                    <p class="text-sm-custom text-indent-8 mb-3"><span class="font-bold">技术栈：</span> echarts、element-ui、Encrypt、vue2、jQuery、git</p>
+                </div>
+
+                <!-- 项目经验 -->
+                <div class="mb-8">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-3">
+                        <h3 class="entry-title" style="color: rgba(14, 165, 233,1);">广货通</h3>
+                        <!-- <span class="text-sm-custom text-gray-600">2022.01 - 2022.06</span> -->
+                    </div>
+                    <p class="text-sm-custom text-indent-8 mb-3"><span class="font-bold">项目描述：</span>广货通是一款面向货运客户的微信小程序，核心提供订单查询、货运班列实时信息展示、业务数据可视化分析等功能，简化客户操作流程，提升货运业务查询与决策效率。</p>
+                    <p class="text-sm-custom text-indent-8 mb-3"><span class="font-bold">项目职责：</span></p>
+                    <ul class="list-disc list-inside text-sm-custom leading-relaxed ml-3 md:ml-4 space-y-1 mb-3">
+                        <li>研读业务需求文档，与产品、后端技术人员协同沟通，基于微信小程序原生框架搭建项目架构，完成页面组件拆分、路由设计与状态管理方案落地；</li>
+                        <li>负责订单查询、班列信息展示等核心页面开发，还原UI设计细节，实现下拉刷新、条件筛选、分页加载等交互功能，保障用户操作流畅性；</li>
+                        <li>对接后端接口，完成订单数据、班列信息、业务统计等数据的联调与适配，设计接口异常处理与数据缓存机制，确保数据传输准确、页面加载稳定；</li>
+                        <li>基于ECharts小程序适配版开发数据可视化看板，展示货运量、订单完成率等核心业务指标，支持多维度筛选，助力客户快速获取数据分析结果；</li>
+                        <li>配合测试人员完成功能测试与兼容性适配，根据反馈优化界面交互、修复Bug，提升小程序易用性与稳定性，保障顺利上线；</li>
+                    </ul>
+                    <p class="text-sm-custom text-indent-8 mb-3"><span class="font-bold">技术栈：</span>微信小程序开发者工具、react、Git、ant-design、vant</p>
+                </div>
+                <!-- 项目经验 -->
+                <div class="mb-8">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-3">
+                        <h3 class="entry-title" style="color: rgba(14, 165, 233,1);">粤商通app</h3>
+                        <!-- <span class="text-sm-custom text-gray-600">2022.01 - 2022.06</span> -->
+                    </div>
+                    <p class="text-sm-custom text-indent-8 mb-3"><span class="font-bold">项目描述：</span>粤商通是广东省政府为全省市场主体打造的涉企移动政务服务平台，围绕企业全生命周期，为企业提供开公
+                        司、办业务、找政策、提诉求、查信用、招人才、融资金、拓商机等主题特色服务。</p>
+                    <p class="text-sm-custom text-indent-8 mb-3"><span class="font-bold">项目职责：</span></p>
+                    <ul class="list-disc list-inside text-sm-custom leading-relaxed ml-3 md:ml-4 space-y-1 mb-3">
+                        <li>负责粤商通APP中广铁货运物流模块的前端开发与集成，完成货运业务办理、物流信息查询、数据统计等核心页面的组件开发与布局实现；</li>
+                        <li>与后端对接货运物流相关接口，梳理字段映射关系，完成数据格式适配与页面渲染逻辑开发，设计异常数据处理机制，确保物流信息展示准确、实时；</li>
+                        <li>配合测试团队完成功能测试、兼容性测试，高效修复接口联调、数据渲染、UI适配等各类Bug，保障模块稳定上线；</li>
+                        <li>参与模块上线前的验收工作，协助梳理用户操作手册，支撑政务服务场景下企业用户快速上手货运物流功能。</li>
+                    </ul>
+                    <p class="text-sm-custom text-indent-8 mb-3"><span class="font-bold">技术栈：</span>React Native、Git、ant-design、vant</p>
+                </div>
+            </div>
+        </section>
+        <!-- 教育经历 -->
+        <!-- <section class="resume-section">
+            <h2 class="section-title">教育经历</h2>
+            <div class="space-y-4">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+                <div>
+                <h3 class="entry-title">计算机科学与技术 - 本科</h3>
+                <p class="entry-subtitle">XX大学</p>
+                </div>
+                <span class="text-sm-custom text-gray-600">2014.09 - 2018.06</span>
+            </div>
+            <ul class="list-disc list-inside text-sm-custom leading-relaxed ml-2 md:ml-4 space-y-1">
+                <li>主修课程：数据结构、计算机网络、操作系统、JavaScript编程、Web开发等</li>
+                <li>学业成绩：GPA 3.8/4.0，专业排名前10%</li>
+                <li>荣誉奖项：校级一等奖学金2次、优秀毕业生、编程竞赛二等奖</li>
+            </ul>
+            </div>
+        </section> -->
+    </main>
+
+    <!-- 打印按钮（仅在屏幕显示，打印时隐藏） -->
+    <div class="no-print fixed bottom-4 right-4">
+      <button onclick="window.print()" class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg flex items-center shadow-md transition-colors">
+        <i class="fa fa-print mr-2"></i> 导出PDF
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // 优化打印体验：确保所有图片加载完成后再打印
+    document.addEventListener('DOMContentLoaded', () => {
+      const printButton = document.querySelector('button[onclick="window.print()"]');
+      printButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        // 延迟打印，确保样式和内容完全加载
+        setTimeout(() => {
+          window.print();
+        }, 300);
+      });
+
+      // 打印完成后的回调（部分浏览器支持）
+      window.addEventListener('afterprint', () => {
+        console.log('PDF导出完成');
+      });
+    });
+    // 根据当前时间 出生时间获取年龄
+    function getAge(birthday) {
+      const birthDate = new Date(birthday);
+      const currentDate = new Date();
+      const age = currentDate.getFullYear() - birthDate.getFullYear();
+      const monthDiff = currentDate.getMonth() - birthDate.getMonth();
+      if (monthDiff < 0 || (monthDiff === 0 && currentDate.getDate() < birthDate.getDate())) {
+        age--;
+      }
+      console.log(age);
+      return age;
+    }
+      // 调用函数获取年龄
+      const age = getAge('1997-01-24');
+      window.onload = function() {
+        document.getElementById('age').textContent = age;
+        document.querySelectorAll('header span.cursor-pointer').forEach(span => {
+          span.addEventListener('click', () => {
+            const text = span.textContent.trim();
+            if (text) {
+              navigator.clipboard.writeText(text).then(() => {
+                console.log('文本已复制到剪贴板');
+              }).catch(err => {
+                console.error('复制文本到剪贴板失败:', err);
+              });
+            }
+          });
+        });
+      }
+  </script>
+</body>
+</html>
