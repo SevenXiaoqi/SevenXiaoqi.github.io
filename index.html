@@ -100,7 +100,7 @@
         </div>
         <div class="flex items-center">
           <i class="fa fa-briefcase mr-2 text-accent"></i>
-          <span>六年 · 已离职</span>
+          <span class="cursor-pointer" title="点击复制""><span id="workExperience">6年</span> · 已离职</span>
         </div>
         <div class="flex items-center">
           <i class="fa fa-money mr-2 text-accent"></i>
@@ -116,7 +116,7 @@
         </div>
         <div class="flex items-center">
           <i class="fa fa-map-marker mr-2 text-accent"></i>
-          <span>北京市</span>
+          <span id="city">北京市</span>
         </div>
         <!-- <div class="flex items-center">
           <i class="fa fa-home mr-2 text-accent"></i>
@@ -158,7 +158,7 @@
                     <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-5">
                         <p class="entry-subtitle">电莫愁信息（北京）有限公司</p>
                         <span class="text-sm-custom text-gray-600">前端开发工程师</span>
-                        <span class="text-sm-custom text-gray-600">2024.10 - 至今</span>
+                        <span class="text-sm-custom text-gray-600">2024.10 - 2025.11</span>
                     </div>
                     <ul class="list-disc list-inside text-sm-custom leading-relaxed ml-2 md:ml-4 space-y-1">
                         <li>主导公司核心产品前端技术选型，结合项目业务场景与团队技术栈，输出 Vue3/React 框架及 Ant Design/Element Plus 组件库适配方案，保障技术架构的合理性、可维护性与扩展性；</li>
@@ -421,10 +421,23 @@
       console.log(age);
       return age;
     }
+    function getCity(){
+      // 获取页面路径
+      const url = window.location.href;
+      // 提取城市参数
+      const city = url.split('city=')[1].split('&')[0] ? decodeURIComponent(url.split('city=')[1].split('&')[0]) : '北京市';
+      return city;
+    }
       // 调用函数获取年龄
       const age = getAge('1997-01-24');
+      // 调用函数获取工作年限
+      const workExperience = getAge('2019-06-01');
+      // 调用函数获取城市
+      const city = getCity();
       window.onload = function() {
         document.getElementById('age').textContent = age;
+        document.getElementById('workExperience').textContent = workExperience + '年';
+        document.getElementById('city').textContent = city;
         document.querySelectorAll('header span.cursor-pointer').forEach(span => {
           span.addEventListener('click', () => {
             const text = span.textContent.trim();
