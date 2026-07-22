@@ -100,7 +100,7 @@
         </div>
         <div class="flex items-center">
           <i class="fa fa-briefcase mr-2 text-accent"></i>
-          <span class="cursor-pointer" title="点击复制""><span id="workExperience">6年</span> · 已离职</span>
+          <span><span id="workExperience">6年</span> · 已离职</span>
         </div>
         <div class="flex items-center">
           <i class="fa fa-money mr-2 text-accent"></i>
@@ -137,16 +137,17 @@
         <section class="resume-section">
             <h2 class="section-title">专业技能</h2>
             <ul class="list-disc list-inside text-sm-custom leading-relaxed ml-2 md:ml-4 space-y-1">
-                <li>精通 HTML5、CSS3 核心特性与前沿规范，能高度还原 UI 设计图，实现响应式布局、动画效果及跨终端适配；</li>
-                <li>熟练掌握 JavaScript/TypeScript 及 jQuery，理解闭包、作用域、原型链等底层原理，熟练运用 ES6 + 语法、Promise、Async/Await 等高级特性开发复杂页面交互；</li>
-                <li>熟练使用 Axios 进行前后端数据交互，熟悉 WebSocket 实时通信原理，能高效处理接口请求、异常捕获与数据格式化；</li>
-                <li>精通 Vue2/Vue3，熟练使用 Vue CLI/Vite+TS 独立开发应用，深入理解组件化思想、响应式原理及 Vue Router、Pinia/Vuex 状态管理；</li>
-                <li>熟练掌握 React 框架及生态，能基于 Vite、Ant Design 等工具 / 组件库独立开发企业级应用，熟悉 Hooks、虚拟 DOM、组件生命周期等核心概念；</li>
-                <li>具备微信小程序、UniApp 跨端开发经验，可快速实现多平台移动端应用开发，适配不同终端屏幕与交互规范；</li>
-                <li>熟悉 ArkTS/ArkUI，能用 DevEco Studio 开发鸿蒙 APP；</li>
-                <li>精通 Git/SVN，支撑多人协同开发；</li>
-                <li>了解 Node.js，可搭建本地服务及简单接口，具备全栈开发能力；</li>
-                <li>熟练使用 Python 语言，基于 DashGo 框架进行后台系统的开发，具备跨端与跨语言协作能力。</li>
+                <li>精通 HTML5/CSS3 前沿规范，可像素级还原 UI 设计稿，高效实现响应式布局、动效与跨端兼容适配；</li>
+                <li>熟练掌握 JavaScript/TypeScript、jQuery，深入理解闭包、原型链、作用域等底层原理，熟练运用 ES6+、Promise、Async/Await 开发复杂交互；</li>
+                <li>熟练使用 Axios 完成前后端数据交互，掌握 WebSocket 实时通信，可规范处理请求、异常捕获与数据格式化；</li>
+                <li>精通 Vue2/Vue3，可基于 Vue CLI/Vite+TS 独立搭建项目，深度掌握组件化、响应式原理及 Vue Router、Pinia/Vuex 状态管理；</li>
+                <li>熟练使用 React 生态，基于 Vite、Ant Design 开发企业级应用，熟悉 Hooks、虚拟 DOM、生命周期等核心机制；</li>
+                <li>具备微信小程序、UniApp 跨端开发经验，可快速交付多端移动端应用，适配不同屏幕与交互规范；</li>
+                <li>熟悉 ArkTS/ArkUI，可使用 DevEco Studio 开发鸿蒙应用；</li>
+                <li>精通 Git/SVN 版本管理，支撑团队高效协同开发；</li>
+                <li>了解 Node.js，可搭建本地服务与简易接口，具备全栈开发能力；</li>
+                <li>熟练使用 Python，基于 DashGo 开发后台系统，具备跨语言与跨端协作能力；</li>
+                <li>熟练运用 Cursor、Trae 等 AI 开发工具，以 AI 赋能编码、调试、重构与设计稿转码，严谨校验优化产出，显著提升研发效率与代码质量。</li>
             </ul>
         </section>
         <!-- 工作经验 -->
@@ -428,13 +429,13 @@
       const city = url.split('city=')[1].split('&')[0] ? decodeURIComponent(url.split('city=')[1].split('&')[0]) : '北京市';
       return city;
     }
-      // 调用函数获取年龄
-      const age = getAge('1997-01-24');
-      // 调用函数获取工作年限
-      const workExperience = getAge('2019-06-01');
-      // 调用函数获取城市
-      const city = getCity();
-      window.onload = function() {
+    // 调用函数获取年龄
+    const age = getAge('1997-01-24');
+    // 调用函数获取工作年限
+    const workExperience = getAge('2019-06-01');
+    // 调用函数获取城市
+    const city = getCity();
+    window.onload = function() {
         document.getElementById('age').textContent = age;
         document.getElementById('workExperience').textContent = workExperience + '年';
         document.getElementById('city').textContent = city;
